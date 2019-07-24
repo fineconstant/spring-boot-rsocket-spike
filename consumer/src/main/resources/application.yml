@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: spring-boot-rsocket-consumer
+server:
+  port: 8080
