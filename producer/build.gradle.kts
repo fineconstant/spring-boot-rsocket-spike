@@ -30,3 +30,37 @@ dependencies {
 
     testImplementation("io.projectreactor:reactor-test")
 }
+
+//protobuf {
+//    protoc {
+//        artifact = 'com.google.protobuf:protoc:3.7.1'
+//    }
+//    plugins {
+//        rsocketRpc {
+//            artifact = 'io.rsocket.rpc:rsocket-rpc-protobuf:0.2.5'
+//        }
+//    }
+//    generateProtoTasks {
+//        all()*.plugins {
+//            rsocketRpc {}
+//        }
+//    }
+//}
+//
+//// If you use Intellij add this so it can find the generated classes
+//idea {
+//    module {
+//        sourceDirs += file("src/main/proto")
+//        sourceDirs += file("src/generated/main/java")
+//        sourceDirs += file("src/generated/main/rsocketRpc")
+//
+//        generatedSourceDirs += file('src/generated/main/java')
+//        generatedSourceDirs += file('src/generated/main/rsocketRpc')
+//    }
+//}
+//
+//// clean generated code
+//clean {
+//    delete 'src/generated/main'
+//}
+

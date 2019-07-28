@@ -1,3 +1,4 @@
+import com.google.protobuf.gradle.*
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 allprojects {
@@ -16,6 +17,7 @@ subprojects {
     dependencies {
         implementation(kotlin("stdlib-jdk8"))
         implementation(kotlin("reflect"))
+        compile("com.google.protobuf", "protobuf-java", "3.9.0")
     }
 
     java.sourceCompatibility = JavaVersion.VERSION_1_8
@@ -39,10 +41,60 @@ subprojects {
     tasks.withType<Test> {
         useJUnitPlatform()
     }
-
-
 }
 
 plugins {
     kotlin("jvm") version "1.3.21"
+    id("com.google.protobuf") version "0.8.10"
 }
+
+protobuf {
+    // Configure the protoc executable
+    protoc {
+        // Download from repositories
+        artifact = "com.google.protobuf:protoc:3.7.0"
+    }
+
+    plugins {
+        id("rsocketRpc") {
+            artifact = "io.rsocket.rpc:rsocket-rpc-protobuf:0.2.17"
+        }
+    }
+    generateProtoTasks {
+        all().forEach {
+            it.plugins {
+                // Apply the "rsocketRpc" plugin whose spec is defined above, without options.
+                id("rsocketRpc")
+            }
+        }
+    }
+
+
+}
+
+//sourceSets{
+//    create("sample"){
+//        proto {
+//            srcDir("src/sample/protobuf")
+//        }
+//    }
+//}
+
+/*
+// If you use Intellij add this so it can find the generated classes
+idea {
+  module {
+	sourceDirs += file("src/main/proto")
+	sourceDirs += file("src/generated/main/java")
+	sourceDirs += file("src/generated/main/rsocketRpc")
+
+	generatedSourceDirs += file('src/generated/main/java')
+	generatedSourceDirs += file('src/generated/main/rsocketRpc')
+  }
+}
+
+// clean generated code
+clean {
+  delete 'src/generated/main'
+}
+ */
