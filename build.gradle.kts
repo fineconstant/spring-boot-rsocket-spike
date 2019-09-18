@@ -44,8 +44,14 @@ subprojects {
 }
 
 plugins {
+    id("com.gradle.build-scan") version "2.1"
     kotlin("jvm") version "1.3.50"
     id("com.google.protobuf") version "0.8.10"
+}
+
+buildScan {
+    termsOfServiceUrl = "https://gradle.com/terms-of-service"
+    termsOfServiceAgree = "yes"
 }
 
 protobuf {
