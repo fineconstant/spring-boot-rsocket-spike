@@ -5,7 +5,7 @@ include("common-rpc")
 include("producer")
 include("consumer")
 
-// Spring Snapshot and Milestone repositories required for Spring Boot 2.2.0.M4 version
+// Spring Snapshot and Milestone repositories required for Spring Boot 2.2.0.M6 version
 pluginManagement {
     repositories {
         mavenLocal()

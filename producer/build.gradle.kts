@@ -1,10 +1,10 @@
 plugins {
-    id("org.springframework.boot") version "2.2.0.M4"
+    id("org.springframework.boot") version "2.2.0.M6"
     kotlin("plugin.spring") version "1.3.21"
     id("io.spring.dependency-management") version "1.0.7.RELEASE"
 }
 
-// Spring Snapshot and Milestone repositories required for Spring Boot 2.2.0.M4 version
+// Spring Snapshot and Milestone repositories required for Spring Boot 2.2.0.M6 version
 repositories {
     maven { url = uri("https://repo.spring.io/snapshot") }
     maven { url = uri("https://repo.spring.io/milestone") }

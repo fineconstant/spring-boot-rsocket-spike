@@ -1,4 +1,4 @@
-package com.kduda.springboot.rsocket.consumer
+package com.kduda.springboot.rsocket.spike.consumer
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

@@ -1,4 +1,4 @@
-package com.kduda.springboot.rsocket.consumer
+package com.kduda.springboot.rsocket.spike.consumer
 
 import io.rsocket.transport.netty.client.TcpClientTransport
 import org.springframework.context.annotation.Bean

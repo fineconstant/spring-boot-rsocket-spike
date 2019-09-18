@@ -17,7 +17,7 @@ subprojects {
     dependencies {
         implementation(kotlin("stdlib-jdk8"))
         implementation(kotlin("reflect"))
-        compile("com.google.protobuf", "protobuf-java", "3.9.0")
+        compile("com.google.protobuf", "protobuf-java", "3.9.1")
     }
 
     java.sourceCompatibility = JavaVersion.VERSION_1_8
@@ -44,7 +44,7 @@ subprojects {
 }
 
 plugins {
-    kotlin("jvm") version "1.3.21"
+    kotlin("jvm") version "1.3.50"
     id("com.google.protobuf") version "0.8.10"
 }
 
@@ -52,12 +52,12 @@ protobuf {
     // Configure the protoc executable
     protoc {
         // Download from repositories
-        artifact = "com.google.protobuf:protoc:3.7.0"
+        artifact = "com.google.protobuf:protoc:3.9.1"
     }
 
     plugins {
         id("rsocketRpc") {
-            artifact = "io.rsocket.rpc:rsocket-rpc-protobuf:0.2.17"
+            artifact = "io.rsocket.rpc:rsocket-rpc-protobuf:0.2.19"
         }
     }
     generateProtoTasks {

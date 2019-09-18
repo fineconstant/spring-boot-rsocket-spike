@@ -1,8 +1,8 @@
-package com.kduda.springboot.rsocket.consumer
+package com.kduda.springboot.rsocket.spike.consumer
 
-import com.kduda.springboot.rsocket.common.Message
-import com.kduda.springboot.rsocket.common.StreamingRequest
-import com.kduda.springboot.rsocket.common.StreamingResponse
+import com.kduda.springboot.rsocket.spike.common.Message
+import com.kduda.springboot.rsocket.spike.common.StreamingRequest
+import com.kduda.springboot.rsocket.spike.common.StreamingResponse
 import mu.KotlinLogging
 import org.springframework.http.MediaType
 import org.springframework.messaging.rsocket.RSocketRequester

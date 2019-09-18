@@ -1,4 +1,4 @@
-package com.kduda.springboot.rsocket.common
+package com.kduda.springboot.rsocket.spike.common
 
 import java.time.Instant
 import java.util.*

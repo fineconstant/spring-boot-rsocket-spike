@@ -1,4 +1,4 @@
-package com.kduda.springboot.rsocket.producer
+package com.kduda.springboot.rsocket.spike.producer
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

@@ -1,9 +1,9 @@
-package com.kduda.springboot.rsocket.producer
+package com.kduda.springboot.rsocket.spike.producer
 
-import com.kduda.springboot.rsocket.common.Message
-import com.kduda.springboot.rsocket.common.MessageFactory
-import com.kduda.springboot.rsocket.common.StreamingRequest
-import com.kduda.springboot.rsocket.common.StreamingResponse
+import com.kduda.springboot.rsocket.spike.common.Message
+import com.kduda.springboot.rsocket.spike.common.MessageFactory
+import com.kduda.springboot.rsocket.spike.common.StreamingRequest
+import com.kduda.springboot.rsocket.spike.common.StreamingResponse
 import mu.KotlinLogging
 import org.springframework.messaging.handler.annotation.MessageExceptionHandler
 import org.springframework.messaging.handler.annotation.MessageMapping
