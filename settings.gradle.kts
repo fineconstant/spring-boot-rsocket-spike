@@ -1,11 +1,12 @@
 rootProject.name = "spring-boot-rsocket-spike"
 
 include("common")
-include("common-rpc")
 include("producer")
 include("consumer")
+include("common-rpc")
+include("producer-rpc")
+include("consumer-rpc")
 
-// Spring Snapshot and Milestone repositories required for Spring Boot 2.2.0.M6 version
 pluginManagement {
     repositories {
         mavenLocal()
