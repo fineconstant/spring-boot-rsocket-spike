@@ -17,7 +17,7 @@ subprojects {
     dependencies {
         implementation(kotlin("stdlib-jdk8"))
         implementation(kotlin("reflect"))
-        compile("com.google.protobuf", "protobuf-java", "3.9.1")
+        compile("com.google.protobuf", "protobuf-java", "3.10.0")
     }
 
     java.sourceCompatibility = JavaVersion.VERSION_1_8
@@ -58,7 +58,7 @@ protobuf {
     // Configure the protoc executable
     protoc {
         // Download from repositories
-        artifact = "com.google.protobuf:protoc:3.9.1"
+        artifact = "com.google.protobuf:protoc:3.10.0"
     }
 
     plugins {

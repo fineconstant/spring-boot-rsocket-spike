@@ -1,13 +1,7 @@
 plugins {
-    id("org.springframework.boot") version "2.2.0.M6"
-    kotlin("plugin.spring") version "1.3.21"
-    id("io.spring.dependency-management") version "1.0.7.RELEASE"
-}
-
-// Spring Snapshot and Milestone repositories required for Spring Boot 2.2.0.M6 version
-repositories {
-    maven { url = uri("https://repo.spring.io/snapshot") }
-    maven { url = uri("https://repo.spring.io/milestone") }
+    id("org.springframework.boot") version "2.2.0.RELEASE"
+    kotlin("plugin.spring") version "1.3.50"
+    id("io.spring.dependency-management") version "1.0.8.RELEASE"
 }
 
 dependencies {
@@ -18,7 +12,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
     compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("io.github.microutils:kotlin-logging:1.6.26")
+    compile("io.github.microutils:kotlin-logging:1.7.6")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 
