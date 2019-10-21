@@ -1,20 +1,15 @@
 package com.kduda.springboot.rsocket.spike.consumer
 
-import io.rsocket.transport.netty.client.TcpClientTransport
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.messaging.rsocket.RSocketRequester
-import org.springframework.messaging.rsocket.RSocketStrategies
-import org.springframework.util.MimeTypeUtils
+
 
 @Configuration
-internal class RSocketConsumerConfiguration {
-
+internal class RSocketConsumerConfiguration(private val rSocketProducer: RSocketProducerProperties) {
     @Bean
-    fun rSocketRequester(rSocketStrategies: RSocketStrategies) =
-        RSocketRequester.builder()
-            .rsocketStrategies(rSocketStrategies)
-            .dataMimeType(MimeTypeUtils.APPLICATION_JSON)
-            .connect(TcpClientTransport.create(7000))
+    fun rSocketRequester(rsocketRequesterBuilder: RSocketRequester.Builder): RSocketRequester =
+        rsocketRequesterBuilder.connectTcp(rSocketProducer.host, rSocketProducer.port)
             .block()
+            ?: throw IllegalStateException("Could not configure RSocketRequester client")
 }

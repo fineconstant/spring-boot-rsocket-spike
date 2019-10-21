@@ -11,6 +11,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-rsocket") {
         exclude( module = "spring-boot-starter-tomcat")
     }
+    implementation("org.springframework.boot:spring-boot-configuration-processor")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
     compile("org.springframework.boot:spring-boot-starter-actuator")
