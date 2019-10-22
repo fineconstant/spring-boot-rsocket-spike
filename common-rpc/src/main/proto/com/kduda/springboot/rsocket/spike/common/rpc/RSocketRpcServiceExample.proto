@@ -1,0 +1,44 @@
+syntax = "proto3";
+option java_multiple_files = true;
+
+package com.kduda.springboot.rsocket.spike.common.rpc;
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/empty.proto";
+
+service RSocketRpcServiceExample {
+    rpc RequestResponse (RSocketRpcRequest) returns (RSocketRpcResponse) {
+    }
+    rpc RequestStream (RSocketRpcRequest) returns (stream RSocketRpcResponse) {
+    }
+    rpc FireAndForget (RSocketRpcRequest) returns (google.protobuf.Empty) {
+    }
+    rpc StreamStream (stream RSocketRpcStreamingRequest) returns (stream RSocketRpcStreamingResponse) {
+    }
+    rpc Exception (RSocketRpcRequest) returns (RSocketRpcResponse) {
+    }
+}
+
+message RSocketRpcRequest {
+    UUIDProto uuid = 1;
+}
+
+message RSocketRpcResponse {
+    UUIDProto uuid = 1;
+    google.protobuf.Timestamp time = 2;
+    string value = 3;
+}
+
+message RSocketRpcStreamingRequest {
+    int32 streamId = 1;
+    UUIDProto uuid = 2;
+}
+
+message RSocketRpcStreamingResponse {
+    int32 streamId = 1;
+    RSocketRpcResponse response = 2;
+}
+
+message UUIDProto {
+    string value = 1;
+}

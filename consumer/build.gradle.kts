@@ -14,8 +14,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-configuration-processor")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
-    compile("org.springframework.boot:spring-boot-starter-actuator")
-    compile("io.github.microutils:kotlin-logging:1.7.6")
+    implementation("org.springframework.boot:spring-boot-starter-actuator")
+    implementation("io.github.microutils:kotlin-logging:1.7.6")
 
     developmentOnly("org.springframework.boot:spring-boot-devtools")
 

@@ -1,7 +1,6 @@
 package com.kduda.springboot.rsocket.spike.producer
 
 import com.kduda.springboot.rsocket.spike.common.Message
-import com.kduda.springboot.rsocket.spike.common.MessageFactory
 import com.kduda.springboot.rsocket.spike.common.StreamingRequest
 import com.kduda.springboot.rsocket.spike.common.StreamingResponse
 import mu.KotlinLogging
@@ -20,8 +19,8 @@ internal class RSocketProducerController(private val messageFactory: MessageFact
 
     @MessageMapping("request-response")
     internal fun requestResponse(uuid: UUID) = uuid
-        .also { logger.info("Responding to request with single response id $it") }
         .let { Mono.just(messageFactory.build(it, "Request - response")) }
+        .doOnNext { logger.info("Responding to request with single response $it") }
 
     @MessageMapping("request-stream")
     internal fun requestStream(uuid: UUID) = uuid
@@ -29,22 +28,21 @@ internal class RSocketProducerController(private val messageFactory: MessageFact
         .let {
             Flux.interval(Duration.ofSeconds(1))
                 .map { messageFactory.build(uuid, "Request - stream") }
-                .log()
-        }
+        }.doOnNext { logger.info("Sending streaming response $it") }
 
     @MessageMapping("fire-and-forget")
     internal fun fireAndForget(uuid: UUID) =
-        logger.info("Received data with id $uuid")
+        logger.info("Received fire and forget data with id $uuid")
             .let { Mono.empty<Void>() }
 
     @MessageMapping("stream-stream")
     internal fun streamStream(streamingRequests: Flux<StreamingRequest>) =
         streamingRequests.flatMap { streamingRequest ->
+            logger.info("Responding with stream ${streamingRequest.streamId}")
             Flux.interval(Duration.ofSeconds(1))
-                .map { messageFactory.build(streamingRequest.uuid, "Request - stream") }
+                .map { messageFactory.build(streamingRequest.uuid, "Stream - stream") }
                 .map { StreamingResponse(streamingRequest.streamId, it) }
-                .log()
-        }
+        }.doOnNext { logger.info("Sending streaming response $it") }
 
     @MessageMapping("exception")
     internal fun exception(uuid: UUID): Mono<Message> =
