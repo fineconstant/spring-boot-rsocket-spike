@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-boot-rsocket-consumer
+    name: spring-boot-rsocket-consumer-rpc
 server:
   port: 8080
 management:

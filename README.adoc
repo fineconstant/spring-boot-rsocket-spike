@@ -1,1 +1,13 @@
-Build status image:https://travis-ci.org/kamilduda/spring-boot-rsocket-spike.svg?branch=master["Build Status", link="https://travis-ci.org/kamilduda/spring-boot-rsocket-spike"]
+Build status: image:https://travis-ci.org/kamilduda/spring-boot-rsocket-spike.svg?branch=master["Build Status", link="https://travis-ci.org/kamilduda/spring-boot-rsocket-spike"]
+
+== To do:
+
+* Configure RSocket RPC producer and consumer.
++
+Currently there are exactly the same APIs in `io.rsocket` and `io.rsocket.kotlin` packages.
+E.g. `io.rsocket.transport.ClientTransport` and `io.rsocket.kotlin.transport.ClientTransport` or `io.rsocket.RSocket` and `io.rsocket.kotlin.RSocket`; however, there are implementation only for APIs from `io.rsocket` package and cannot be used to configure RSocket RPC Kotlin!
+
+* Check to string implementation on Protobuf generated classes.
+* Implement exception handler at RSocket RPC producer.
+* Use Reactor or `java.util.concurrent.Flow` (even better!) instead of RxJava for RSocket RPC generated services.
+* Refactor code for RSocket RPC producer and consumer.

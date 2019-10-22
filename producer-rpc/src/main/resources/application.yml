@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: spring-boot-rsocket-producer-rpc
+  rsocket:
+    server:
+      port: 7000
+      transport: tcp
