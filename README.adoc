@@ -1,4 +1,4 @@
-Build status: image:https://travis-ci.org/kamilduda/spring-boot-rsocket-spike.svg?branch=master["Build Status", link="https://travis-ci.org/kamilduda/spring-boot-rsocket-spike"]
+image:https://travis-ci.org/kamilduda/spring-boot-rsocket-spike.svg?branch=master["Build Status", link="https://travis-ci.org/kamilduda/spring-boot-rsocket-spike"]
 
 == To do:
 
