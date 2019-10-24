@@ -4,8 +4,7 @@ image:https://travis-ci.org/kamilduda/spring-boot-rsocket-spike.svg?branch=maste
 
 * Configure RSocket RPC producer and consumer.
 +
-Currently there are exactly the same APIs in `io.rsocket` and `io.rsocket.kotlin` packages.
-E.g. `io.rsocket.transport.ClientTransport` and `io.rsocket.kotlin.transport.ClientTransport` or `io.rsocket.RSocket` and `io.rsocket.kotlin.RSocket`; however, there are implementation only for APIs from `io.rsocket` package and cannot be used to configure RSocket RPC Kotlin!
+Inject `RSocketRpcServiceExampleAcceptor` into Spring created RSocket instance.
 
 * Check implementation of client and server using RSocket Server without Spring
 * Check to string implementation on Protobuf generated classes.
