@@ -2,7 +2,7 @@ package com.kduda.springboot.rsocket.spike.common.rpc
 
 import java.time.Instant
 import java.util.*
-
+import com.kduda.springboot.rsocket.spike.common.rpc.InstantProtobufExtensions.toInstant
 
 data class RSocketRpcResponseDto(val uuidRaw: UUID, val timeRaw: Instant, val valueRaw: String) :
     KotlinRepresentation<RSocketRpcResponse> {
@@ -18,8 +18,7 @@ data class RSocketRpcResponseDto(val uuidRaw: UUID, val timeRaw: Instant, val va
         override fun from(proto: RSocketRpcResponse): RSocketRpcResponseDto =
             RSocketRpcResponseDto(
                 UUID.fromString(proto.uuid.value),
-                proto.time
-                    .let { Instant.ofEpochSecond(it.seconds, it.nanos.toLong()) },
+                proto.time.toInstant(),
                 proto.value
             )
     }
