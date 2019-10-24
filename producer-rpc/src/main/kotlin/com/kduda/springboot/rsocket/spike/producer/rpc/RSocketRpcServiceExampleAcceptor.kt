@@ -78,5 +78,3 @@ internal class RSocketRpcServiceExampleAcceptor : RSocketRpcServiceExample {
             .let { messageFactory.build(UUID.randomUUID(), exception.message ?: "Fallback message") }
             .let { Mono.just(it) }
  */
-
-
