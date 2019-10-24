@@ -22,29 +22,29 @@ internal class RSocketConsumerController(private val requester: RSocketRequester
     @GetMapping("request-response")
     internal fun requestResponse() =
         UUID.randomUUID()
-            .also { logger.info("Requesting for response with id $it") }
+            .also { logger.info { "Requesting for response with id $it" } }
             .let {
                 requester.route("request-response")
                     .data(it)
                     .retrieveMono<Message>()
-                    .doOnNext { response -> logger.info("Received response $response") }
+                    .doOnNext { response -> logger.info { "Received response $response" } }
             }
 
     @GetMapping("request-stream", produces = [MediaType.TEXT_EVENT_STREAM_VALUE])
     internal fun requestStream() =
         UUID.randomUUID()
-            .also { logger.info("Request for stream id $it") }
+            .also { logger.info { "Request for stream id $it" } }
             .let {
                 requester.route("request-stream")
                     .data(it)
                     .retrieveFlux<Message>()
-                    .doOnNext { response -> logger.info("Received streaming response $response") }
+                    .doOnNext { response -> logger.info { "Received streaming response $response" } }
             }
 
     @GetMapping("fire-and-forget")
     internal fun fireAndForget() =
         UUID.randomUUID()
-            .also { logger.info("Sending fire and forget data with id $it") }
+            .also { logger.info { "Sending fire and forget data with id $it" } }
             .let {
                 requester.route("fire-and-forget")
                     .data(it)
@@ -53,18 +53,18 @@ internal class RSocketConsumerController(private val requester: RSocketRequester
 
     @GetMapping("stream-stream/{streams}", produces = [MediaType.TEXT_EVENT_STREAM_VALUE])
     internal fun streamStream(@PathVariable streams: Int) =
-        streams.also { logger.info("Requesting for $streams streams") }
+        streams.also { logger.info { "Requesting for $streams streams" } }
             .let {
                 requester.route("stream-stream")
                     .data(Flux.range(0, streams)
                         .map { StreamingRequest(it, UUID.randomUUID()) })
                     .retrieveFlux<StreamingResponse>()
-                    .doOnNext { logger.info("Received streaming response $it") }
+                    .doOnNext { logger.info { "Received streaming response $it" } }
             }
 
     @GetMapping("exception")
     internal fun exception() = UUID.randomUUID()
-        .also { logger.info("Endpoint should throw an exception") }
+        .also { logger.info { "Endpoint should throw an exception" } }
         .let {
             requester.route("exception")
                 .data(it)

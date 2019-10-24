@@ -1,8 +1,8 @@
 import com.google.protobuf.gradle.*
 
 dependencies {
-    implementation("com.google.protobuf", "protobuf-java", "3.10.0")
-    api("io.rsocket.rpc.kotlin", "rsocket-rpc-core", "0.2.13")
+    api("com.google.protobuf", "protobuf-java", "3.10.0")
+    api("io.rsocket.rpc", "rsocket-rpc-core", "0.2.19")
 }
 
 plugins {
@@ -17,11 +17,8 @@ protobuf {
     }
 
     plugins {
-        // id("rsocketRpcJava") {
-        //     artifact = "io.rsocket.rpc:rsocket-rpc-protobuf:0.2.19"
-        // }
-        id("rsocketRpcKotlin") {
-            artifact = "io.rsocket.rpc.kotlin:rsocket-rpc-protobuf:0.2.13"
+        id("rsocketRpcJava") {
+            artifact = "io.rsocket.rpc:rsocket-rpc-protobuf:0.2.19"
         }
     }
     generateProtoTasks {
@@ -31,29 +28,27 @@ protobuf {
             it.inputs.file("${rootProject.projectDir}/build.gradle.kts")
             it.plugins {
                 // Apply the "rsocketRpcJava" plugin whose spec is defined above, without options.
-                // id("rsocketRpcJava")
-                // Apply the "rsocketRpcKotlin" plugin whose spec is defined above, without options.
-                id("rsocketRpcKotlin")
+                id("rsocketRpcJava")
             }
         }
     }
 }
 
 // If you use Intellij add this so it can find the generated classes
-// idea {
-//     module {
-//         sourceDirs.add(file("src/main/proto"))
-//         sourceDirs.add(file("src/generated/main/java"))
-//         sourceDirs.add(file("src/generated/main/rsocketRpc"))
-//         sourceDirs.add(file("src/generated/main/rsocketRpcJava"))
-//         sourceDirs.add(file("src/generated/main/rsocketRpcKotlin"))
-//
-//         generatedSourceDirs.add(file("src/generated/main/java"))
-//         generatedSourceDirs.add(file("src/generated/main/rsocketRpc"))
-//         generatedSourceDirs.add(file("src/generated/main/rsocketJava"))
-//         generatedSourceDirs.add(file("src/generated/main/rsocketRpcKotlin"))
-//     }
-// }
+idea {
+    module {
+        sourceDirs.add(file("src/main/proto"))
+        sourceDirs.add(file("src/generated/main/java"))
+        sourceDirs.add(file("src/generated/main/rsocketRpc"))
+        sourceDirs.add(file("src/generated/main/rsocketRpcJava"))
+        sourceDirs.add(file("src/generated/main/rsocketRpcKotlin"))
+
+        generatedSourceDirs.add(file("src/generated/main/java"))
+        generatedSourceDirs.add(file("src/generated/main/rsocketRpc"))
+        generatedSourceDirs.add(file("src/generated/main/rsocketJava"))
+        generatedSourceDirs.add(file("src/generated/main/rsocketRpcKotlin"))
+    }
+}
 
 tasks {
     // Clean generated code

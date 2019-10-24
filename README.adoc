@@ -11,3 +11,4 @@ E.g. `io.rsocket.transport.ClientTransport` and `io.rsocket.kotlin.transport.Cli
 * Implement exception handler at RSocket RPC producer.
 * Use Reactor or `java.util.concurrent.Flow` (even better!) instead of RxJava for RSocket RPC generated services.
 * Refactor code for RSocket RPC producer and consumer.
+* Check and remove all TODO comments

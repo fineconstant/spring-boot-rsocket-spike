@@ -6,6 +6,7 @@ allprojects {
 
     repositories {
         maven("https://oss.jfrog.org/libs-release")
+        maven("https://repo.spring.io/milestone")
         jcenter()
         mavenLocal()
     }
