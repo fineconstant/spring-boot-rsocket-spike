@@ -2,13 +2,11 @@ image:https://travis-ci.org/kamilduda/spring-boot-rsocket-spike.svg?branch=maste
 
 == To do:
 
+* Check implementation of client and server using RSocket Server without Spring
 * Configure RSocket RPC producer and consumer.
 +
-Inject `RSocketRpcServiceExampleAcceptor` into Spring created RSocket instance.
-
-* Check implementation of client and server using RSocket Server without Spring
+Inject `RSocketRpcServiceExampleServer` implementation into Spring created RSocket instance.
 * Check to string implementation on Protobuf generated classes.
 * Implement exception handler at RSocket RPC producer.
-* Use Reactor or `java.util.concurrent.Flow` (even better!) instead of RxJava for RSocket RPC generated services.
-* Refactor code for RSocket RPC producer and consumer.
+* Refactor code for RSocket RPC producer.
 * Check and remove all TODO comments
