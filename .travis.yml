@@ -20,4 +20,4 @@ notifications:
   email: false
 
 install:
-  - install-protoc.sh
+  - ./install-protoc.sh
