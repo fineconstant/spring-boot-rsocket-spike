@@ -18,9 +18,3 @@ cache:
 
 notifications:
   email: false
-
-before_install:
-  - chmod +x install-protoc.sh
-
-install:
-  - ./install-protoc.sh
