@@ -1,6 +1,18 @@
 image:https://travis-ci.org/kamilduda/spring-boot-rsocket-spike.svg?branch=master["Build Status", link="https://travis-ci.org/kamilduda/spring-boot-rsocket-spike"]
 
-== To do:
+== Spring Boot RSocket
+
+=== Spring Boot + RSocket
+* common
+* producer
+* consumer
+
+=== Spring Boot + RSocketRPC + Protocol Buffers (protobuf)
+* common-rpc
+* producer-rpc
+* consumer-rpc
+
+=== To do:
 
 * Configure RSocketMessageHandler to be RSocket RPC implementation
 +
