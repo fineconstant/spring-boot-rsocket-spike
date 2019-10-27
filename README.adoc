@@ -2,7 +2,6 @@ image:https://travis-ci.org/kamilduda/spring-boot-rsocket-spike.svg?branch=maste
 
 == To do:
 
-* Configure RSocket RPC producer and consumer.
+* Configure RSocketMessageHandler to be RSocket RPC implementation
 +
-Inject `RSocketRpcServiceExampleServer` implementation into Spring created RSocket instance.
-* Check and remove all TODO comments
+Inject `RSocketRpcServiceExampleServer` implementation into Spring.

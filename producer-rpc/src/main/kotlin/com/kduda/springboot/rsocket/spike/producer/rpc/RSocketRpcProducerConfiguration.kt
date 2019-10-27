@@ -6,20 +6,10 @@ import org.springframework.context.annotation.Configuration
 import java.util.*
 
 
-// TODO: configure server - specify RSocket Acceptor
+// TODO: configure RSocketMessageHandler to be RSocket RPC implementation
 @Configuration
 internal class RSocketRpcProducerConfiguration {
     @Bean
     fun rSocketRpcServiceExampleServer(): RSocketRpcServiceExampleServer =
         RSocketRpcServiceExampleServer(RSocketRpcServiceExampleAcceptor(), Optional.empty(), Optional.empty())
-
-    // @Bean
-    // fun rSocketFactory(rSocketRpcServiceExampleServer:RSocketRpcServiceExampleServer)=
-    //     RSocketFactory
-    //         .receive()
-    //         .acceptor { setup, sendingSocket -> Mono.just(RequestHandlingRSocket(rSocketRpcServiceExampleServer)) }
-    //         .transport(TcpServerTransport.create("localhost", 7000))
-    //         .start()
-    //         .block()
-
 }
