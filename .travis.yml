@@ -19,6 +19,11 @@ cache:
 notifications:
   email: false
 
+
+stages:
+  - compile
+
 jobs:
   include:
-    - script: gradle clean build --stacktrace
+    - stage: compile
+      script: gradle clean build --stacktrace
